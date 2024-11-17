@@ -17,21 +17,40 @@ class Calculator:
 
     def divide(self, a, b):
         if b == 0:
-            #return "ZeroDivisionError"
+            # return "ZeroDivisionError"
             raise ZeroDivisionError("Division by zero is not allowed.")
+        
+        sign = 1
+        if (a < 0) != (b < 0):
+            sign = -1
+            if b<0: 
+                b = -b
+            if a<0: 
+                a = -a
+
         result = 0
         while a >= b:
             a = self.subtract(a, b)
-            result += 1
-        return result
+            result = result + 1
+        return result * sign
     
     def modulo(self, a, b):
         if b == 0:
             #return "ZeroDivisionError"
             raise ZeroDivisionError("Modulo by zero is not allowed.")
+        
+        sign = 0
+        if (a < 0) != (b < 0):
+            if a < 0: 
+                a = -a
+                sign = -1
+            if b < 0: 
+                b = -b
+                sign = 1
+
         while a >= b:
             a = a - b
-        return a
+        return (a-b)*sign if (sign != 0) else a
 
 # Example usage:
 if __name__ == "__main__":
@@ -40,5 +59,5 @@ if __name__ == "__main__":
     print("Example: addition: ", calc.add(1, 2))
     print("Example: subtraction: ", calc.subtract(4, 2))
     print("Example: multiplication: ", calc.multiply(2, 3))
-    print("Example: division: ", calc.divide(10, 2))
-    print("Example: modulo: ", calc.modulo(10, 3))
+    print("Example: division: ", calc.divide(10, -2))
+    print("Example: modulo: ", calc.modulo(-10, 3))

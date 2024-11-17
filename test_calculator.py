@@ -39,7 +39,9 @@ class TestCalculator(unittest.TestCase):
     def test_mod2(self):
         self.assertRaises(self.calc.modulo(10, 0), ZeroDivisionError)
     def test_mod3(self):
-        self.assertEqual(self.calc.modulo(-10, 3), 0)
+        self.assertEqual(self.calc.modulo(-10, 3), 2)
+    def test_mod4(self):
+        self.assertEqual(self.calc.modulo(10, -3), -2)
 
 
     # Add the following test methods to the TestCalculator class:
