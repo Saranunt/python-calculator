@@ -17,8 +17,8 @@ class Calculator:
 
     def divide(self, a, b):
         if b == 0:
-            # return "ZeroDivisionError"
-            raise ZeroDivisionError("Division by zero is not allowed.")
+            return "ZeroDivisionError"
+            #raise ZeroDivisionError("Division by zero is not allowed.")
         
         sign = 1
         if (a < 0) != (b < 0):
@@ -36,8 +36,8 @@ class Calculator:
     
     def modulo(self, a, b):
         if b == 0:
-            #return "ZeroDivisionError"
-            raise ZeroDivisionError("Modulo by zero is not allowed.")
+            return "ZeroDivisionError"
+            #raise ZeroDivisionError("Modulo by zero is not allowed.")
         
         sign = 0
         if (a < 0) != (b < 0):
