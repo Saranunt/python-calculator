@@ -17,8 +17,8 @@ class Calculator:
 
     def divide(self, a, b):
         if b == 0:
-            return "ZeroDivisionError"
-            #raise ZeroDivisionError("Division by zero is not allowed.")
+            #return "ZeroDivisionError"
+            raise ZeroDivisionError("Division by zero is not allowed.")
         
         sign = 1
         if (a < 0) != (b < 0):
@@ -32,12 +32,12 @@ class Calculator:
         while a >= b:
             a = self.subtract(a, b)
             result = result + 1
-        return result * sign
+        return self.multiply(result , sign)
     
     def modulo(self, a, b):
         if b == 0:
-            return "ZeroDivisionError"
-            #raise ZeroDivisionError("Modulo by zero is not allowed.")
+            #return "ZeroDivisionError"
+            raise ZeroDivisionError("Modulo by zero is not allowed.")
         
         sign = 0
         if (a < 0) != (b < 0):
@@ -50,7 +50,7 @@ class Calculator:
 
         while a >= b:
             a = a - b
-        return (a-b)*sign if (sign != 0) else a
+        return self.multiply(a-b , sign) if (sign != 0) else a
 
 # Example usage:
 if __name__ == "__main__":
